@@ -1,24 +1,24 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.IO;
 
-public class KakaoLogin : MonoBehaviour
+public class GoogleLogin : MonoBehaviour
 {
     private void OnMouseDown()
     {
         string sessionId = GetSessionId();
-        string url = "https://localhost:7032/api/login/kakao?session_id=" + sessionId;
+        string url = "https://localhost:7032/api/login/google?session_id=" + sessionId;
 
         Application.OpenURL(url);
 
-        // LoginComplete ¾À¿¡¼­ ·Î±×ÀÎÀ» ¿Ï·áÇÏ°Ô ÇÑ´Ù
+        // LoginComplete ì”¬ì—ì„œ ë¡œê·¸ì¸ì„ ì™„ë£Œí•˜ê²Œ í•œë‹¤
         SceneManager.LoadScene("LoginComplete");
     }
 
     private string GetSessionId()
     {
-        string sessionId = Guid.NewGuid().ToString();  // ¼¼¼Ç ID¸¦ ¸¸µç´Ù
+        string sessionId = Guid.NewGuid().ToString();  // ì„¸ì…˜ IDë¥¼ ë§Œë“ ë‹¤
         const string filePath = "./Assets/login/loginValues.json";
 
         string loginValuesString = File.ReadAllText(filePath);
