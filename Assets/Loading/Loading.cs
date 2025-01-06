@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
@@ -14,11 +14,11 @@ public class Loading : MonoBehaviour
         // 로그인한 적이 있으면 Home 씬으로 이동, 그렇지 않으면 Login 씬으로 이동
         if (loginValuesJson.isLogined)
         {
-            //SceneManager.LoadScene("Home");
+            SceneManager.LoadScene("Home");
         }
         else
         {
-            //SceneManager.LoadScene("Login");
+            SceneManager.LoadScene("Login");
         }
     }
 }
