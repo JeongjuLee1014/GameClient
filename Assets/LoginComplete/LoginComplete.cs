@@ -52,12 +52,7 @@ public class LoginComplete : MonoBehaviour
     {
         LoginValues loginValues = LoginValues.Get();
 
-        yield return StartCoroutine(SendGetUserRequest(loginValues.sessionId));
-    }
-
-    public IEnumerator SendGetUserRequest(string sessionId)
-    {
-        string url = "https://localhost:7032/api/users/session/" + sessionId;
+        string url = "https://localhost:7032/api/users/session/" + loginValues.sessionId;
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
