@@ -18,4 +18,9 @@ public class LoginValues
         string updatedJson = JsonUtility.ToJson(newValues);
         File.WriteAllText(filePath, updatedJson);
     }
+
+    public static string GetSessionId()
+    {
+        return Get().sessionId;
+    }
 }

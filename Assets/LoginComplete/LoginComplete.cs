@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using System.IO;
 
 public class LoginComplete : MonoBehaviour
 {
