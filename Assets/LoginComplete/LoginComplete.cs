@@ -36,15 +36,11 @@ public class LoginComplete : MonoBehaviour
 
     public void SetLogined()
     {
-        const string filePath = "./Assets/login/loginValues.json";
-
-        string loginValuesString = File.ReadAllText(filePath);
-        LoginValues loginValues = JsonUtility.FromJson<LoginValues>(loginValuesString);
+        LoginValues loginValues = LoginValues.Get();
 
         loginValues.isLogined = true;
 
-        string updatedJson = JsonUtility.ToJson(loginValues);
-        File.WriteAllText(filePath, updatedJson);
+        LoginValues.Set(loginValues);
     }
 
     public IEnumerator CheckLoginCompleted()
@@ -55,17 +51,7 @@ public class LoginComplete : MonoBehaviour
 
     public IEnumerator GetUser()
     {
-        const string filePath = "./Assets/login/loginValues.json";
-
-        // 파일이 존재하지 않을 경우 처리
-        if (!File.Exists(filePath))
-        {
-            Debug.LogError("Login values file not found: " + filePath);
-            yield break;
-        }
-
-        string loginValuesString = File.ReadAllText(filePath);
-        LoginValues loginValues = JsonUtility.FromJson<LoginValues>(loginValuesString);
+        LoginValues loginValues = LoginValues.Get();
 
         yield return StartCoroutine(SendGetUserRequest(loginValues.sessionId));
     }

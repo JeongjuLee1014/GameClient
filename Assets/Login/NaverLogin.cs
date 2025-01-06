@@ -19,15 +19,12 @@ public class NaverLogin : MonoBehaviour
     private string GetSessionId()
     {
         string sessionId = Guid.NewGuid().ToString();  // 세션 ID를 만든다
-        const string filePath = "./Assets/login/loginValues.json";
 
-        string loginValuesString = File.ReadAllText(filePath);
-        LoginValues loginValues = JsonUtility.FromJson<LoginValues>(loginValuesString);
+        LoginValues loginValues = LoginValues.Get();
 
         loginValues.sessionId = sessionId;
 
-        string updatedJson = JsonUtility.ToJson(loginValues);
-        File.WriteAllText(filePath, updatedJson);
+        LoginValues.Set(loginValues);
 
         return sessionId;
     }

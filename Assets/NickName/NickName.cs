@@ -31,10 +31,8 @@ public class NickName : MonoBehaviour
 
     public IEnumerator SendPutUserRequest(string nickName)
     {
-        const string filePath = "./Assets/login/loginValues.json";
-
-        string loginValuesString = File.ReadAllText(filePath);
-        LoginValues loginValues = JsonUtility.FromJson<LoginValues>(loginValuesString);
+        LoginValues loginValues = LoginValues.Get();
+        
         string sessionId = loginValues.sessionId;
 
         User user = new User();
