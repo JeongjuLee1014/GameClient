@@ -1,6 +1,6 @@
 ﻿class User
 {
-    public long id;
+    public string id;
     public string nickName;
     public string sessionId;
 }

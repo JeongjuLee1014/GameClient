@@ -35,7 +35,7 @@ public class NickName : MonoBehaviour
         string sessionId = loginValues.sessionId;
 
         User user = new User();
-        user.id = 0;
+        user.id = "";
         user.nickName = nickName;
         user.sessionId = sessionId;
 
