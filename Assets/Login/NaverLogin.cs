@@ -5,8 +5,13 @@ public class NaverLogin : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        string sessionId = LoginValues.GetSessionId();
-        string url = "https://localhost:7032/api/login/naver?session_id=" + sessionId;
+        string sessionId = LoginValues.CreateSessionId();
+
+        LoginValues loginValues = LoginValues.Get();
+        loginValues.sessionId = sessionId;
+        LoginValues.Set(loginValues);
+
+        string url = "https://localhost:7032/api/login/naver?sessionId=" + sessionId;
 
         Application.OpenURL(url);
 

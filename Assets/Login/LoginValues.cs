@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.IO;
 
 public class LoginValues
@@ -7,6 +8,7 @@ public class LoginValues
     public string sessionId;
 
     private static string filePath = "./Assets/Login/loginValues.json";
+
     public static LoginValues Get()
     {
         string loginValuesString = File.ReadAllText(filePath);
@@ -19,8 +21,8 @@ public class LoginValues
         File.WriteAllText(filePath, updatedJson);
     }
 
-    public static string GetSessionId()
+    public static string CreateSessionId()
     {
-        return Get().sessionId;
+        return Guid.NewGuid().ToString();
     }
 }
