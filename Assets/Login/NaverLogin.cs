@@ -11,7 +11,7 @@ public class NaverLogin : MonoBehaviour
         loginValues.sessionId = sessionId;
         LoginValues.Set(loginValues);
 
-        string url = "https://localhost:7032/api/login/naver?sessionId=" + sessionId;
+        string url = Constants.SERVER_URL + "/api/login/naver?sessionId=" + sessionId;
 
         Application.OpenURL(url);
 

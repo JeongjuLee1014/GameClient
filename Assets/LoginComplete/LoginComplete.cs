@@ -52,7 +52,7 @@ public class LoginComplete : MonoBehaviour
     {
         LoginValues loginValues = LoginValues.Get();
 
-        string url = "https://localhost:7032/api/users/session/" + loginValues.sessionId;
+        string url = Constants.SERVER_URL + "/api/users/session/" + loginValues.sessionId;
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {

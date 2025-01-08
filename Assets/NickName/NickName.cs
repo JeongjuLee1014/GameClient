@@ -39,7 +39,7 @@ public class NickName : MonoBehaviour
         user.nickName = nickName;
         user.sessionId = sessionId;
 
-        string url = "https://localhost:7032/api/users/session/" + sessionId;
+        string url = Constants.SERVER_URL + "/api/users/session/" + sessionId;
 
         string jsonData = JsonUtility.ToJson(user);
 
