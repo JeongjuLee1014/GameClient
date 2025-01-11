@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NaverLogin : MonoBehaviour
@@ -11,7 +12,8 @@ public class NaverLogin : MonoBehaviour
         loginValues.sessionId = sessionId;
         LoginValues.Set(loginValues);
 
-        string url = Constants.SERVER_URL + "/api/login/naver?sessionId=" + sessionId;
+        //string url = Constant.SERVER_URL + "/api/login/naver?sessionId=" + sessionId;
+        string url = $"{Constant.SERVER_URL}/api/login/naver?session_id={Uri.EscapeDataString(sessionId)}";
 
         Application.OpenURL(url);
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,8 @@ public class KakaoLogin : MonoBehaviour
         loginValues.sessionId = sessionId;
         LoginValues.Set(loginValues);
 
-        string url = Constants.SERVER_URL + "/api/login/kakao?sessionId=" + sessionId;
+        //string url = Constant.SERVER_URL + "/api/login/kakao?sessionId=" + sessionId;
+        string url = $"{Constant.SERVER_URL}/api/login/kakao?session_id={Uri.EscapeDataString(sessionId)}";
 
         Application.OpenURL(url);
 

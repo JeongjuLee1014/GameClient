@@ -72,3 +72,4 @@ crashlytics-build.properties
 
 # 상수
 /Assets/Constants/*
+/Assets/Constant/*

@@ -34,14 +34,21 @@ public class NickName : MonoBehaviour
         
         string sessionId = loginValues.sessionId;
 
-        User user = new User();
-        user.id = "";
-        user.nickName = nickName;
-        user.sessionId = sessionId;
+        // PUT 요청을 보낼 URL
+        string url = $"{Constant.SERVER_URL}/api/users/session/{sessionId}";
 
-        string url = Constants.SERVER_URL + "/api/users/session/" + sessionId;
+        // 현재 User 데이터를 업데이트
+        User.Instance.UpdateUserData(
+            User.Instance.id,
+            nickName,
+            sessionId,
+            User.Instance.numCoins,
+            User.Instance.numStars,
+            User.Instance.numEnergies
+        );
 
-        string jsonData = JsonUtility.ToJson(user);
+        // JSON 데이터로 변환
+        string jsonData = JsonUtility.ToJson(User.Instance);
 
         using (UnityWebRequest request = new UnityWebRequest(url, "PUT"))
         {
