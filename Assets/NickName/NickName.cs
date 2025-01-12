@@ -13,11 +13,23 @@ public class NickName : MonoBehaviour
         inputField.onEndEdit.AddListener(OnInputEndEdit);
     }
 
+    //private void OnInputEndEdit(string text)
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Return))
+    //    {
+    //        StartCoroutine(SetNickName(text));
+    //    }
+    //}
     private void OnInputEndEdit(string text)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (!string.IsNullOrEmpty(text))
         {
+            // 닉네임이 비어있지 않을 경우 바로 처리
             StartCoroutine(SetNickName(text));
+        }
+        else
+        {
+            Debug.LogWarning("닉네임이 비어 있습니다.");
         }
     }
 
