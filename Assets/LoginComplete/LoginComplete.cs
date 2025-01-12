@@ -7,8 +7,9 @@ public class LoginComplete : MonoBehaviour
 {
     private bool isLoginCompleted = false;
 
-    public void OnMouseDown()
+    public void onLoginCompleteClick()
     {
+        Debug.Log("CompleteButton clicked");
         StartCoroutine(HandleLoginCompletion());
     }
 
