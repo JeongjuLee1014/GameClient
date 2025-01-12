@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class KakaoLogin : MonoBehaviour
 {
-    private void OnMouseDown()
+    //private void OnMouseDown()
+    public void OnKakaoLoginClick()
     {
         string sessionId = LoginValues.CreateSessionId();
 

@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class NaverLogin : MonoBehaviour
 {
-    private void OnMouseDown()
+    //private void OnMouseDown()
+    public void OnNaverLoginClick()
     {
         string sessionId = LoginValues.CreateSessionId();
 
