@@ -1,0 +1,23 @@
+# ninja log v5
+11	1607	7583728459846741	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	50ed8b1b97ca821e
+112	327	7583728447099555	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	c9be3b4bd684013f
+331	666	7583728450416037	C:/Users/PC/Desktop/GameProject/SnodeGameClient/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1z6t8121/obj/armeabi-v7a/libswappywrapper.so	e470e6c4361116fc
+36	1103	7583728454757532	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	b87d8b4f569b5574
+79	1316	7583728456861328	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a52f5e2d7685cfb1
+21	1158	7583728455355890	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	98484d6066621183
+63	1160	7583728455355890	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	952626172986cbe7
+1	1273	7583728456538401	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f63906eb2f5ad44b
+95	1271	7583728456488160	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	270814fd9dd55c7e
+49	1502	7583728458859786	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1a54bae7832f59e0
+1608	1837	7583728462248368	C:/Users/PC/Desktop/GameProject/SnodeGameClient/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1z6t8121/obj/armeabi-v7a/libgame.so	3b2b93df612dabe8
+117	334	7583793971079927	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	c9be3b4bd684013f
+335	706	7583793974731455	C:/Users/PC/Desktop/GameProject/SnodeGameClient/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1z6t8121/obj/armeabi-v7a/libswappywrapper.so	e470e6c4361116fc
+3	1010	7583793977682616	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	b87d8b4f569b5574
+52	1131	7583793978973661	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	952626172986cbe7
+38	1162	7583793979302866	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	98484d6066621183
+66	1210	7583793979761019	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	270814fd9dd55c7e
+14	1305	7583793980726137	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f63906eb2f5ad44b
+99	1345	7583793981117443	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a52f5e2d7685cfb1
+83	1558	7583793983285405	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1a54bae7832f59e0
+24	1657	7583793984249566	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	50ed8b1b97ca821e
+1657	1841	7583793986167676	C:/Users/PC/Desktop/GameProject/SnodeGameClient/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1z6t8121/obj/armeabi-v7a/libgame.so	3b2b93df612dabe8
