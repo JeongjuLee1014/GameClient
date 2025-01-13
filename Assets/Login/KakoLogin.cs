@@ -14,7 +14,7 @@ public class KakaoLogin : MonoBehaviour
         LoginValues.Set(loginValues);
 
         //string url = Constant.SERVER_URL + "/api/login/kakao?sessionId=" + sessionId;
-        string url = $"{Constant.SERVER_URL}/api/login/kakao?session_id={Uri.EscapeDataString(sessionId)}";
+        string url = $"{Constant.SERVER_URL}/api/login/kakao?sessionId={Uri.EscapeDataString(sessionId)}";
 
         Application.OpenURL(url);
 

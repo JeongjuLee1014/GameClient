@@ -15,7 +15,7 @@ public class GoogleLogin : MonoBehaviour
 
         //string url = Constant.SERVER_URL + "/api/login/google?sessionId=" + sessionId;
         //URL 인코딩
-        string url = $"{Constant.SERVER_URL}/api/login/google?session_id={Uri.EscapeDataString(sessionId)}";
+        string url = $"{Constant.SERVER_URL}/api/login/google?sessionId={Uri.EscapeDataString(sessionId)}";
 
         Application.OpenURL(url);
 
