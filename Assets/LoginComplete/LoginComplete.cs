@@ -46,8 +46,20 @@ public class LoginComplete : MonoBehaviour
     private IEnumerator CheckLoginCompleted()
     {
         yield return StartCoroutine(GetUser());
-        Debug.Log($"User ID: {User.Instance.id}"); // User ID 확인
-        isLoginCompleted = !string.IsNullOrEmpty(User.Instance.id);
+        //Debug.Log($"User ID: {User.Instance.id}"); // User ID 확인
+        //isLoginCompleted = !string.IsNullOrEmpty(User.Instance.id);
+
+        // User.Instance가 null이 아니면 isLoginCompleted를 false로 설정
+        if (User.Instance != null)
+        {
+            Debug.Log("User instance exists. Setting isLoginCompleted to false.");
+            isLoginCompleted = false; // User가 존재하므로 로그인이 완료되지 않음
+        }
+        else
+        {
+            Debug.Log("User instance is null. Setting isLoginCompleted to true.");
+            isLoginCompleted = true; // User가 없으므로 로그인이 완료됨
+        }
     }
 
     private IEnumerator GetUser()
@@ -65,10 +77,10 @@ public class LoginComplete : MonoBehaviour
 
                 // Singleton User 인스턴스에 데이터 저장
                 User loadedUser = JsonUtility.FromJson<User>(request.downloadHandler.text);
-                Debug.Log($"Loaded User Data: Id={loadedUser.id}, NickName={loadedUser.nickName}, SessionId={loadedUser.sessionId}");
+                Debug.Log($"Loaded User Data: NickName={loadedUser.nickName}, SessionId={loadedUser.sessionId}");
 
                 User.Instance.UpdateUserData(
-                    loadedUser.id,
+                    //loadedUser.id,
                     loadedUser.nickName,
                     loadedUser.sessionId,
                     loadedUser.numCoins,

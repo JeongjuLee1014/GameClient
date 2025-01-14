@@ -49,7 +49,7 @@ public class Loading : MonoBehaviour
                 Debug.Log(request.downloadHandler.text);
 
                 User.Instance.UpdateUserData(
-                    loadedUser.id,
+                    //loadedUser.id,
                     loadedUser.nickName,
                     loadedUser.sessionId,
                     loadedUser.numCoins,
