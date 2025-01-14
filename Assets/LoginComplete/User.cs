@@ -3,7 +3,7 @@
 public class User
 {
     // 사용자 정보 속성
-    public string id;
+    //public string id; // id는 삭제
     public string nickName;
     public string sessionId;
     public int numCoins;
@@ -62,14 +62,14 @@ public class User
     // User 인스턴스 초기화 (데이터 리셋)
     public void Reset()
     {
-        UpdateUserData(string.Empty, string.Empty, string.Empty, 0, 0, 0);
+        UpdateUserData(string.Empty, string.Empty, 0, 0, 0);
     }
 
     // 사용자 데이터를 업데이트하는 메서드
-    public void UpdateUserData(string id, string nickName, string sessionId, int numCoins, int numEnergies, int numStars )
+    public void UpdateUserData(string nickName, string sessionId, int numCoins, int numEnergies, int numStars )
     {
-        Debug.Log($"Updating User Data: Id={id}, NickName={nickName}, SessionId={sessionId}, NumCoins={numCoins}, NumEnergies={numEnergies}, NumStars={numStars}");
-        this.id = id;
+        Debug.Log($"Updating User Data: NickName={nickName}, SessionId={sessionId}, NumCoins={numCoins}, NumEnergies={numEnergies}, NumStars={numStars}");
+        //this.id = id;
         this.nickName = nickName;
         this.sessionId = sessionId;
         this.numCoins = numCoins;

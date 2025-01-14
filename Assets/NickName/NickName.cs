@@ -51,7 +51,7 @@ public class NickName : MonoBehaviour
 
         // 현재 User 데이터를 업데이트
         User.Instance.UpdateUserData(
-            User.Instance.id,
+            //User.Instance.id,
             nickName,
             sessionId,
             User.Instance.numCoins,
