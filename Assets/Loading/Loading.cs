@@ -34,37 +34,56 @@ public class Loading : MonoBehaviour
         yield return StartCoroutine(LoadSceneAsync());
     }
 
+    //private IEnumerator LoadUserData()
+    //{
+    //    LoginValues loginValues = LoginValues.Get();
+    //    string url = $"{Constant.SERVER_URL}/api/users/session/{loginValues.sessionId}";
+
+    //    using (UnityWebRequest request = UnityWebRequest.Get(url))
+    //    {
+    //        yield return request.SendWebRequest();
+
+    //        if (request.result == UnityWebRequest.Result.Success)
+    //        {
+    //            User loadedUser = JsonUtility.FromJson<User>(request.downloadHandler.text);
+    //            Debug.Log(request.downloadHandler.text);
+
+    //            User.Instance.UpdateUserData(
+    //                //loadedUser.id,
+    //                loadedUser.nickName,
+    //                loadedUser.sessionId,
+    //                loadedUser.numCoins,
+    //                loadedUser.numStars,
+    //                loadedUser.numEnergies
+    //            );
+
+    //            Debug.Log("User data loaded successfully.");
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("Failed to load user data: " + request.error);
+    //            nextScene = "Login"; // 데이터 로드 실패 시 로그인 화면으로 이동
+    //        }
+    //    }
+    //}
+
     private IEnumerator LoadUserData()
     {
         LoginValues loginValues = LoginValues.Get();
-        string url = $"{Constant.SERVER_URL}/api/users/session/{loginValues.sessionId}";
+        string serverUrl = Constant.SERVER_URL;
 
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        yield return StartCoroutine(User.Instance.GetUser(serverUrl, loginValues.sessionId, success =>
         {
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
+            if (!success)
             {
-                User loadedUser = JsonUtility.FromJson<User>(request.downloadHandler.text);
-                Debug.Log(request.downloadHandler.text);
-
-                User.Instance.UpdateUserData(
-                    //loadedUser.id,
-                    loadedUser.nickName,
-                    loadedUser.sessionId,
-                    loadedUser.numCoins,
-                    loadedUser.numStars,
-                    loadedUser.numEnergies
-                );
-
-                Debug.Log("User data loaded successfully.");
+                Debug.LogError("User data load failed.");
+                nextScene = "Login";
             }
             else
             {
-                Debug.LogError("Failed to load user data: " + request.error);
-                nextScene = "Login"; // 데이터 로드 실패 시 로그인 화면으로 이동
+                Debug.Log("User data loaded successfully.");
             }
-        }
+        }));
     }
 
     private IEnumerator LoadSceneAsync()

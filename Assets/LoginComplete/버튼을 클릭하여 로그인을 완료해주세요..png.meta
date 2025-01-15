@@ -1,10 +1,23 @@
 fileFormatVersion: 2
-guid: a4bf215ff09e00d48badf8c10c01d1e9
+guid: dc7d6cc74d8217e489c68a06a18bf606
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6793243701807739499
-    second: NaverLoginButton_0
+      213: -5663739949869121542
+    second: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+      \uC644\uB8CC\uD574\uC8FC\uC138\uC694._0"
+  - first:
+      213: 6619821628680623836
+    second: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+      \uC644\uB8CC\uD574\uC8FC\uC138\uC694._1"
+  - first:
+      213: 6500266010163736974
+    second: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+      \uC644\uB8CC\uD574\uC8FC\uC138\uC694._2"
+  - first:
+      213: -970773607396193844
+    second: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+      \uC644\uB8CC\uD574\uC8FC\uC138\uC694._3"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +59,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,20 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +152,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NaverLoginButton_0
+      name: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+        \uC644\uB8CC\uD574\uC8FC\uC138\uC694._0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1156
-        height: 250
+        x: 35
+        y: 27
+        width: 67
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +168,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59d071968dc89b1a0800000000000000
-      internalID: -6793243701807739499
+      spriteID: affbcdbf58a5661b0800000000000000
+      internalID: -5663739949869121542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+        \uC644\uB8CC\uD574\uC8FC\uC138\uC694._1"
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 27
+        width: 88
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6d4fda2b45edb50800000000000000
+      internalID: 6619821628680623836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+        \uC644\uB8CC\uD574\uC8FC\uC138\uC694._2"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 88
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e81fa511f75953a50800000000000000
+      internalID: 6500266010163736974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744
+        \uC644\uB8CC\uD574\uC8FC\uC138\uC694._3"
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 138
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc943d52c8e1782f0800000000000000
+      internalID: -970773607396193844
       vertices: []
       indices: 
       edges: []
@@ -164,7 +247,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +257,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NaverLoginButton_0: -6793243701807739499
+      "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744 \uC644\uB8CC\uD574\uC8FC\uC138\uC694._0": -5663739949869121542
+      "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744 \uC644\uB8CC\uD574\uC8FC\uC138\uC694._1": 6619821628680623836
+      "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744 \uC644\uB8CC\uD574\uC8FC\uC138\uC694._2": 6500266010163736974
+      "\uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uB85C\uADF8\uC778\uC744 \uC644\uB8CC\uD574\uC8FC\uC138\uC694._3": -970773607396193844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

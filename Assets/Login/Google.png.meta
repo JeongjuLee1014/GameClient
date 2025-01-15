@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a69b949deda34a44a937e006300b24fd
+guid: 4a3732b99ba5f6143a4aebefc2c3aee0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8904505826486641601
-    second: kakao_login_medium_narrow_0
+      213: 8468249061332286032
+    second: "\uAD6C\uAE00_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,20 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kakao_login_medium_narrow_0
+      name: "\uAD6C\uAE00_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 183
-        height: 45
+        width: 282
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3c1edff027dc6480800000000000000
-      internalID: -8904505826486641601
+      spriteID: 05afe3297a3458570800000000000000
+      internalID: 8468249061332286032
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kakao_login_medium_narrow_0: -8904505826486641601
+      "\uAD6C\uAE00_0": 8468249061332286032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
