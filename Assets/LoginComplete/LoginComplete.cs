@@ -49,16 +49,16 @@ public class LoginComplete : MonoBehaviour
         //Debug.Log($"User ID: {User.Instance.id}"); // User ID 확인
         //isLoginCompleted = !string.IsNullOrEmpty(User.Instance.id);
 
-        // User.Instance가 null이 아니면 isLoginCompleted를 false로 설정
+        // User.Instance가 null이 아니면 isLoginCompleted를 true로 설정
         if (User.Instance != null)
         {
             Debug.Log("User instance exists. Setting isLoginCompleted to false.");
-            isLoginCompleted = false; // User가 존재하므로 로그인이 완료되지 않음
+            isLoginCompleted = true; // User가 존재하므로 로그인이 완료
         }
         else
         {
             Debug.Log("User instance is null. Setting isLoginCompleted to true.");
-            isLoginCompleted = true; // User가 없으므로 로그인이 완료됨
+            isLoginCompleted = false; // User가 없으므로 로그인이 완료되지 않음.
         }
     }
 

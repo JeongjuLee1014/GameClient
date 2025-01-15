@@ -833,7 +833,7 @@ PlayerSettings:
   metroTargetDeviceFamilies: {}
   metroFTAName: 
   metroFTAFileTypes: []
-  metroProtocolName: 
+  metroProtocolName: unitydl
   vcxProjDefaultLanguage: 
   XboxOneProductId: 
   XboxOneUpdateKey: 
