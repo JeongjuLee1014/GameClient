@@ -50,50 +50,70 @@ public class LoginComplete : MonoBehaviour
         //isLoginCompleted = !string.IsNullOrEmpty(User.Instance.id);
 
         // User.Instance가 null이 아니면 isLoginCompleted를 true로 설정
-        if (User.Instance != null)
-        {
-            Debug.Log("User instance exists. Setting isLoginCompleted to false.");
-            isLoginCompleted = true; // User가 존재하므로 로그인이 완료
-        }
-        else
-        {
-            Debug.Log("User instance is null. Setting isLoginCompleted to true.");
-            isLoginCompleted = false; // User가 없으므로 로그인이 완료되지 않음.
-        }
+        //if (User.Instance != null)
+        //{
+        //    Debug.Log("User instance exists. Setting isLoginCompleted to false.");
+        //    isLoginCompleted = true; // User가 존재하므로 로그인이 완료
+        //}
+        //else
+        //{
+        //    Debug.Log("User instance is null. Setting isLoginCompleted to true.");
+        //    isLoginCompleted = false; // User가 없으므로 로그인이 완료되지 않음.
+        //}
     }
+
+    //private IEnumerator GetUser()
+    //{
+    //    LoginValues loginValues = LoginValues.Get();
+    //    string url = $"{Constant.SERVER_URL}/api/users/session/{loginValues.sessionId}";
+
+    //    using (UnityWebRequest request = UnityWebRequest.Get(url))
+    //    {
+    //        yield return request.SendWebRequest();
+
+    //        if (request.result == UnityWebRequest.Result.Success)
+    //        {
+    //            Debug.Log($"Response data: {request.downloadHandler.text}"); // 응답 데이터 확인
+
+    //            // Singleton User 인스턴스에 데이터 저장
+    //            User loadedUser = JsonUtility.FromJson<User>(request.downloadHandler.text);
+    //            Debug.Log($"Loaded User Data: NickName={loadedUser.nickName}, SessionId={loadedUser.sessionId}");
+
+    //            User.Instance.UpdateUserData(
+    //                //loadedUser.id,
+    //                loadedUser.nickName,
+    //                loadedUser.sessionId,
+    //                loadedUser.numCoins,
+    //                loadedUser.numStars,
+    //                loadedUser.numEnergies
+    //            );
+
+    //            Debug.Log("User data loaded successfully.");
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("Failed to get user data: " + request.error);
+    //        }
+    //    }
+    //}
 
     private IEnumerator GetUser()
     {
         LoginValues loginValues = LoginValues.Get();
-        string url = $"{Constant.SERVER_URL}/api/users/session/{loginValues.sessionId}";
+        string serverUrl = Constant.SERVER_URL;
 
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        yield return StartCoroutine(User.Instance.GetUser(serverUrl, loginValues.sessionId, success =>
         {
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
+            if (success)
             {
-                Debug.Log($"Response data: {request.downloadHandler.text}"); // 응답 데이터 확인
-
-                // Singleton User 인스턴스에 데이터 저장
-                User loadedUser = JsonUtility.FromJson<User>(request.downloadHandler.text);
-                Debug.Log($"Loaded User Data: NickName={loadedUser.nickName}, SessionId={loadedUser.sessionId}");
-
-                User.Instance.UpdateUserData(
-                    //loadedUser.id,
-                    loadedUser.nickName,
-                    loadedUser.sessionId,
-                    loadedUser.numCoins,
-                    loadedUser.numStars,
-                    loadedUser.numEnergies
-                );
-
-                Debug.Log("User data loaded successfully.");
+                Debug.Log("Login completed successfully.");
+                isLoginCompleted = true;
             }
             else
             {
-                Debug.LogError("Failed to get user data: " + request.error);
+                Debug.LogError("Login check failed.");
+                isLoginCompleted = false;
             }
-        }
+        }));
     }
 }

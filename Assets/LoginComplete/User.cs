@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class User
 {
@@ -26,34 +28,7 @@ public class User
         }
     }
 
-    //// 사용자 정보 속성
-    //public string Id { get; private set; }
-    //public string NickName { get; private set; }
-    //public string SessionId { get; private set; }
-
-    //private int numCoins;
-    //private int numStars;
-    //private int numEnergies;
-
-    //public int NumCoins
-    //{
-    //    get => numCoins;
-    //    set => numCoins = Mathf.Max(0, value); // 음수 방지
-    //}
-
-    //public int NumStars
-    //{
-    //    get => numStars;
-    //    set => numStars = Mathf.Max(0, value); // 음수 방지
-    //}
-
-    //public int NumEnergies
-    //{
-    //    get => numEnergies;
-    //    set => numEnergies = Mathf.Max(0, value); // 음수 방지
-    //}
-
-    // private 생성자: 외부에서 인스턴스화하지 못하도록 제한
+    
     private User()
     {
         Reset();
@@ -76,5 +51,71 @@ public class User
         this.numEnergies = numEnergies;
         this.numStars = numStars;
         
+    }
+
+    // GET 요청: 사용자 데이터 가져오기
+    //System.Action<bool> callback : 요청 성공 여부를 콜백으로 전달하여 후속 처리를 유연하게 구현.
+    public IEnumerator GetUser(string serverUrl, string sessionId, System.Action<bool> callback)
+    {
+        string url = $"{serverUrl}/api/users/session/{sessionId}";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log($"Response data: {request.downloadHandler.text}");
+                User loadedUser = JsonUtility.FromJson<User>(request.downloadHandler.text);
+                UpdateUserData(
+                    loadedUser.nickName,
+                    loadedUser.sessionId,
+                    loadedUser.numCoins,
+                    loadedUser.numStars,
+                    loadedUser.numEnergies
+                );
+                callback(true);
+            }
+            else
+            {
+                Debug.LogError($"Failed to get user data: {request.error}");
+                callback(false);
+            }
+        }
+    }
+
+    // PUT 요청: 사용자 데이터 업데이트
+    public IEnumerator PutUser(string serverUrl, User newData, System.Action<bool> callback)
+    {
+        string url = $"{serverUrl}/api/users/session/{newData.sessionId}";
+        string jsonData = JsonUtility.ToJson(newData);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "PUT"))
+        {
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("User data successfully updated.");
+                UpdateUserData(
+                    newData.nickName,
+                    newData.sessionId,
+                    newData.numCoins,
+                    newData.numStars,
+                    newData.numEnergies
+                );
+                callback(true);
+            }
+            else
+            {
+                Debug.LogError($"Failed to update user data: {request.error}");
+                callback(false);
+            }
+        }
     }
 }

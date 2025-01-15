@@ -40,18 +40,59 @@ public class NickName : MonoBehaviour
         SceneManager.LoadScene("Home");
     }
 
+    //public IEnumerator SendPutUserRequest(string nickName)
+    //{
+    //    LoginValues loginValues = LoginValues.Get();
+
+    //    string sessionId = loginValues.sessionId;
+
+    //    // PUT 요청을 보낼 URL
+    //    string url = $"{Constant.SERVER_URL}/api/users/session/{sessionId}";
+
+    //    // 현재 User 데이터를 업데이트
+    //    User.Instance.UpdateUserData(
+    //        //User.Instance.id,
+    //        nickName,
+    //        sessionId,
+    //        User.Instance.numCoins,
+    //        User.Instance.numStars,
+    //        User.Instance.numEnergies
+    //    );
+
+    //    // JSON 데이터로 변환
+    //    string jsonData = JsonUtility.ToJson(User.Instance);
+    //    Debug.Log($"Request Data: {jsonData}");
+
+    //    using (UnityWebRequest request = new UnityWebRequest(url, "PUT"))
+    //    {
+    //        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+    //        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+    //        request.downloadHandler = new DownloadHandlerBuffer();
+    //        request.SetRequestHeader("Content-Type", "application/json");
+
+    //        // 서버로 요청을 보내고 응답을 기다립니다.
+    //        yield return request.SendWebRequest();
+
+    //        // 응답을 처리합니다.
+    //        if (request.result == UnityWebRequest.Result.Success)
+    //        {
+    //            Debug.Log("사용자 닉네임이 성공적으로 업데이트되었습니다.");
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("서버 요청에 실패했습니다: " + request.error);
+    //        }
+    //    }
+    //}
     public IEnumerator SendPutUserRequest(string nickName)
     {
         LoginValues loginValues = LoginValues.Get();
-        
+
         string sessionId = loginValues.sessionId;
 
-        // PUT 요청을 보낼 URL
-        string url = $"{Constant.SERVER_URL}/api/users/session/{sessionId}";
+        string serverUrl = Constant.SERVER_URL;
 
-        // 현재 User 데이터를 업데이트
         User.Instance.UpdateUserData(
-            //User.Instance.id,
             nickName,
             sessionId,
             User.Instance.numCoins,
@@ -59,28 +100,16 @@ public class NickName : MonoBehaviour
             User.Instance.numEnergies
         );
 
-        // JSON 데이터로 변환
-        string jsonData = JsonUtility.ToJson(User.Instance);
-
-        using (UnityWebRequest request = new UnityWebRequest(url, "PUT"))
+        yield return StartCoroutine(User.Instance.PutUser(serverUrl, User.Instance, success =>
         {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-
-            // 서버로 요청을 보내고 응답을 기다립니다.
-            yield return request.SendWebRequest();
-
-            // 응답을 처리합니다.
-            if (request.result == UnityWebRequest.Result.Success)
+            if (success)
             {
-                Debug.Log("사용자 닉네임이 성공적으로 업데이트되었습니다.");
+                Debug.Log("Nickname updated successfully.");
             }
             else
             {
-                Debug.LogError("서버 요청에 실패했습니다: " + request.error);
+                Debug.LogError("Failed to update nickname.");
             }
-        }
+        }));
     }
 }
