@@ -65,6 +65,7 @@
     <Compile Include="Assets\LoginComplete\LoginComplete.cs" />
     <Compile Include="Assets\Home\Home.cs" />
     <Compile Include="Assets\NickName\NickName.cs" />
+    <Compile Include="Assets\Home\ProfilePanelUI.cs" />
     <Compile Include="Assets\Login\NaverLogin.cs" />
     <Compile Include="Assets\Loading\Loading.cs" />
     <Compile Include="Assets\LoginComplete\User.cs" />
